@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.diogo.workshop.unittest.database.Database;
+import com.diogo.workshop.unittest.utils.FintechUtils;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MyControllerTest {
@@ -17,13 +18,16 @@ public class MyControllerTest {
 	@Mock
 	private Database database;
 	
+	@Mock
+	private FintechUtils fintech;
+	
 	@InjectMocks
 	private MyController controller;
 	
 	@Test
 	public void test() {
 		
-		Mockito.when(database.someQuery(5)).thenReturn(6);
+		Mockito.when(database.someQuery(5)).thenReturn(7);
 		
 		assertEquals(11, controller.someMethod(5));
 		
